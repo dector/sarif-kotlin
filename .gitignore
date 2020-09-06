@@ -1,0 +1,14 @@
+# Intellij files
+.idea/
+*.iml
+
+# Gradle files
+.gradle/
+
+# Build files
+out/
+build/
+
+# Kotlin test
+.kotlintest/
+
