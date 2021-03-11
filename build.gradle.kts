@@ -1,29 +1,24 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version Versions.kotlin
+    kotlin("jvm") version "1.4.31"
 }
 
 dependencies {
-
-    testImplementation(Deps.kotest.runner)
-    testImplementation(Deps.kotest.assertions)
 }
 
-allprojects {
-    group = "space.dector.${rootProject.name}"
-    version = "0.1-SNAPSHOT"
+group = "space.dector.sarif"
+version = "0.1.0-SNAPSHOT"
 
-    repositories {
-        jcenter()
-    }
-
-    tasks.withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "1.8"
-        kotlinOptions.freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
-    }
+repositories {
+    jcenter()
 }
 
-val test by tasks.getting(Test::class) {
+tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = "1.8"
+    kotlinOptions.freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
+}
+
+tasks.test {
     useJUnitPlatform()
 }
